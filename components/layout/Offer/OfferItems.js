@@ -16,11 +16,14 @@ import { REMOVE_OFFER_ITEM } from "../../../context/types";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    margin: "auto",
-    padding: "0.6rem",
+    width: "80%",
+    // margin: "auto",
+    // padding: "0.6rem",
   },
   tb: {
-    margin: "0.2rem",
+    // margin: "0.2rem",
+    width: "60%",
+    position: "relative",
   },
   tbhead: {
     background: theme.palette.primary.dark,
@@ -30,9 +33,10 @@ const useStyles = makeStyles((theme) => ({
   },
   total: {
     fontWeight: "800",
+    marginRight: "1rem",
     background: "rgba(0,0,0,0.4)",
     color: "green",
-    fontSize: "1.4rem",
+    fontSize: "1.2rem",
   },
 }));
 
@@ -61,8 +65,11 @@ const OfferItems = () => {
   };
 
   return (
-    <Paper className={classes.paper}>
-      <Table className={classes.tb}>
+    <Paper>
+      <Table
+        className={classes.paper}
+        style={{ margin: "auto", overflowX: "auto" }}
+      >
         <TableHead>
           <TableRow className={classes.tbhead}>
             <TableCell>Κωδικός </TableCell>

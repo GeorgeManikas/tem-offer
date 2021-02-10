@@ -7,8 +7,8 @@ const Footer = () => {
         style={{
           background: "rgba(0,0,0,0.1)",
           padding: "1rem",
-          position: "fixed",
-          bottom: 0,
+          // position: "relative",
+          // bottom: 0,
 
           width: "100%",
         }}

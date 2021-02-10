@@ -9,7 +9,7 @@ import {
 import ProductSearch from "../../ProductSearch";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { Grid } from "@material-ui/core";
+import { Grid, Paper } from "@material-ui/core";
 import OfferItems from "./OfferItems";
 
 const OfferForm = () => {
@@ -49,7 +49,7 @@ const OfferForm = () => {
   };
 
   return (
-    <>
+    <Paper square elevation={4} style={{ width: "97%", margin: "auto" }}>
       <form onSubmit={(e) => handleSubmit(e)}>
         <Grid
           container
@@ -90,8 +90,10 @@ const OfferForm = () => {
         </Grid>
       </form>
       <br />
-      {state.offerProducts.length > 0 && <OfferItems />}
-    </>
+      <Grid item xs={12}>
+        {state.offerProducts.length > 0 && <OfferItems />}
+      </Grid>
+    </Paper>
   );
 };
 
