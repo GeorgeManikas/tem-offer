@@ -13,10 +13,13 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/styles": "^4.11.3",
     "@prisma/client": "^2.15.0",
+    "@react-pdf/renderer": "^1.6.13",
+    "add": "^2.0.6",
     "lodash": "^4.17.20",
     "next": "10.0.6",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@prisma/cli": "^2.15.0"

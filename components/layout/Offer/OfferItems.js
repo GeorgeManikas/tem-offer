@@ -115,10 +115,11 @@ const OfferItems = () => {
               <TableCell></TableCell>
             </Hidden>
             <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell className={classes.total}>{total} </TableCell>
+            <TableCell>Αξία :</TableCell>
+            <TableCell className={classes.total}> {total} </TableCell>
           </TableRow>
         </TableBody>
+        <small> * στην τιμή δεν συμπεριλαμβάνεται το ΦΠΑ</small>
       </Table>
     </Paper>
   );

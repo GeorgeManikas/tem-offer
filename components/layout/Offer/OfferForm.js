@@ -9,8 +9,9 @@ import {
 import ProductSearch from "../../ProductSearch";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid, Link, Paper } from "@material-ui/core";
 import OfferItems from "./OfferItems";
+import { Add } from "@material-ui/icons";
 
 const OfferForm = () => {
   const { state, dispatch } = useContext(SwitchContext);
@@ -49,51 +50,68 @@ const OfferForm = () => {
   };
 
   return (
-    <Paper square elevation={4} style={{ width: "97%", margin: "auto" }}>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <Grid
-          container
-          spacing={1}
-          justify="center"
-          align="center"
-          style={{ padding: "0.2rem" }}
-        >
-          <Grid item xs={8}>
-            {loaded && <ProductSearch />}
+    <>
+      <Paper
+        elevation={4}
+        style={{
+          width: "97%",
+          margin: "auto",
+          marginTop: "4rem",
+          padding: "1rem",
+        }}
+      >
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <Grid
+            container
+            spacing={1}
+            justify="center"
+            align="center"
+            style={{ padding: "0.2rem" }}
+          >
+            <Grid item xs={12} md={8}>
+              {loaded && <ProductSearch />}
+            </Grid>
+            <Grid item xs={6} md={2}>
+              <TextField
+                type="number"
+                id="gty"
+                label="ποσότητα"
+                value={qty}
+                onChange={(e) => {
+                  setQty(e.target.value);
+                  dispatch({ type: SET_QUANTITY, payload: e.target.value });
+                }}
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={6} md={2}>
+              <Button
+                disabled={
+                  qty <= 0 || Object.keys(state.currentProduct).length === 0
+                }
+                fullWidth
+                type="submit"
+                variant="contained"
+                color="primary"
+                style={{ height: "100%", color: "white" }}
+              >
+                <Add /> προσθήκη
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item xs={2}>
-            <TextField
-              type="number"
-              id="gty"
-              label="ποσότητα"
-              value={qty}
-              onChange={(e) => {
-                setQty(e.target.value);
-                dispatch({ type: SET_QUANTITY, payload: e.target.value });
-              }}
-              variant="outlined"
-              fullWidth
-            />
-          </Grid>
-          <Grid item xs={2}>
-            <Button
-              disabled={qty <= 0}
-              fullWidth
-              type="submit"
-              variant="contained"
-              color="primary"
-              style={{ height: "100%" }}
-            >
-              προσθήκη
-            </Button>
-          </Grid>
+        </form>
+        <br />
+      </Paper>
+      <Paper
+        elevation={4}
+        style={{ width: "97%", margin: "auto", marginTop: "4rem" }}
+      >
+        <Grid item xs={12}>
+          {state.offerProducts.length > 0 && <OfferItems />}
         </Grid>
-      </form>
-      <br />
-      <Grid item xs={12}>
-        {state.offerProducts.length > 0 && <OfferItems />}
-      </Grid>
-    </Paper>
+      </Paper>
+    </>
   );
 };
 
