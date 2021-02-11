@@ -58,10 +58,10 @@ const OfferForm = () => {
           align="center"
           style={{ padding: "0.2rem" }}
         >
-          <Grid item xs={12}>
+          <Grid item xs={8}>
             {loaded && <ProductSearch />}
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={2}>
             <TextField
               type="number"
               id="gty"
@@ -75,7 +75,7 @@ const OfferForm = () => {
               fullWidth
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={2}>
             <Button
               disabled={qty <= 0}
               fullWidth
